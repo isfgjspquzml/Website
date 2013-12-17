@@ -1,0 +1,4 @@
+Options +FollowSymLinks
+RewriteEngine on
+RewriteRule . - [E=no-gzip:1]
+AddHandler application/x-httpd-php5s .php

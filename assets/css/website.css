@@ -1,0 +1,424 @@
+@font-face {
+    font-family: 'avenirbook';
+    src: url('avenir-webfont.eot');
+    src: url('avenir-webfont.eot?#iefix') format('embedded-opentype'),
+         url('avenir-webfont.woff') format('woff'),
+         url('avenir-webfont.ttf') format('truetype'),
+         url('avenir-webfont.svg#avenirbook') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'avenir_next_condensedbold';
+    src: url('avenirnextcondensed-webfont.eot');
+    src: url('avenirnextcondensed-webfont.eot?#iefix') format('embedded-opentype'),
+         url('avenirnextcondensed-webfont.woff') format('woff'),
+         url('avenirnextcondensed-webfont.ttf') format('truetype'),
+         url('avenirnextcondensed-webfont.svg#avenir_next_condensedbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'bebas_neueregular';
+    src: url('bebasneue-webfont.eot');
+    src: url('bebasneue-webfont.eot?#iefix') format('embedded-opentype'),
+         url('bebasneue-webfont.woff') format('woff'),
+         url('bebasneue-webfont.ttf') format('truetype'),
+         url('bebasneue-webfont.svg#bebas_neueregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'brain_flowerregular';
+    src: url('brain_flower_euro-webfont.eot');
+    src: url('brain_flower_euro-webfont.eot?#iefix') format('embedded-opentype'),
+         url('brain_flower_euro-webfont.woff') format('woff'),
+         url('brain_flower_euro-webfont.ttf') format('truetype'),
+         url('brain_flower_euro-webfont.svg#brain_flowerregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:focus {
+  outline: none;
+}
+
+a:active,
+a:hover {
+  outline: 0;
+}
+
+body {
+  width: 100%;
+  margin: 0;
+  font-family: Avenir;
+  font-size: 14px;
+  line-height: 20px;
+  color: #000000;
+  background-color: #ffffff;
+}
+
+div {
+  padding: 0;
+  margin: 0;
+}
+
+footer {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  padding: 5px;
+  text-align: center;
+  background: #000000;
+  color: #ffffff;
+  text-decoration: none;  
+  opacity: 0.85;
+}
+
+footer a,
+footer a:visited {
+  color:#63D1F4;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.post,
+#container,
+#archiveLoadSection,
+#mainLoadSection,
+#postLoadSection {
+  width: 670px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  position: relative;
+}
+
+#container {
+  width: 670px;
+  position: relative;
+  text-align: center;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+#disqus_thread {
+  margin-top:100px;
+}
+
+#information {
+  text-align: center;
+  position: relative;
+  font-size: 30px;
+  font-family: Avenir Next Condensed;
+  text-transform: uppercase;
+  top: 30px;
+}
+
+#left {
+  display: inline-block;
+  text-align: right;
+}
+
+#right {
+  display: inline-block;
+  text-align: left;
+}
+
+#loadSection {
+  width: 100%;
+  position: relative;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+#main-blog {
+  width: 100%;
+}
+
+#otherContent {
+  width: 100%;
+}
+
+#main-menu { 
+  background:#000000;
+  top:0; 
+  height:60px; 
+  left:0; 
+  overflow:hidden; 
+  position:fixed; 
+  text-transform: uppercase;
+  text-align: center;
+  width:100%; 
+  z-index:10; 
+  opacity: .8;
+}
+
+#nav {
+  display: inline-block;
+}
+
+#nav > li {
+  line-height: 60px;
+  float: left;
+  text-align: center;
+}
+
+#nav > li > a {
+  display: block;
+  text-decoration: none;
+  padding-left: 25px;
+  padding-right: 25px;
+  font-size: 23px;
+}
+
+#mainLoadSection a {
+  color: black;
+}
+
+#mainLoadSection a:active {
+  color: black;
+}
+
+#mainLoadSection a:hover {
+  font-weight: bold;
+}
+
+#mainLoadSection .date {
+  margin-top: 0px;
+}
+
+#mainLoadSection .post_title {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+#main-menu #nav .active {
+  background:#ffffff; 
+  color:#000000;
+}
+
+#blognav a,
+#portfolionav a {
+    color: #000000;
+}
+
+#blognav a:hover,
+#portfolionav a:hover,
+#blognav .active,
+#portfolionav .active {
+  font-weight: bold;
+}
+
+#blognav,
+#portfolionav {
+  position: relative;
+  font-size: 20px;
+  font-family: Avenir Next Condensed;
+  line-height: 20px;
+  text-transform: uppercase;
+  position: relative;
+  width: 100%;
+  z-index:5; 
+}
+
+#blognav ul,
+#portfolionav ul {
+    display: -webkit-inline-box;
+}
+
+.about {
+  color: #ffffff;
+  background: url('sketch_bg.png') no-repeat;
+  background-size: 175px;
+  background-position: center;
+  padding: 60px;
+  font-size: 50px; 
+  font-family: brain_flowerregular;
+}
+
+.archive {
+  top: 90px;
+  width: 670px;
+  position: relative;
+  text-align: center;
+  float: left;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.archive a {
+  color: #000000;
+}
+
+.archive a:hover {
+  font-weight: bold;
+}
+
+.center {
+  position: relative;
+  text-align: center;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.blog_width {
+  width: 670px;
+}
+
+.drop45 {
+  top:45px;
+}
+
+.drop70 {
+  top:70px;
+}
+
+.drop90 {
+  top:90px;
+}
+
+.icon {
+  height: 60px;
+}
+
+.menuLink > a {
+  font-family: Avenir Next Condensed;
+  background:url('menubg.png') repeat 0 0;;
+  background-attachment:fixed;
+  background-position:0px 0px;
+  color: #ffffff;
+}
+
+.menuLink > a:hover {
+  color: #000000;
+  background-position:0px 60px;
+}
+
+.post_body {
+  text-align: left;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+.post_data {
+  margin: 0;
+  padding: 0;
+}
+
+.post_list {
+  list-style: none;
+  display: block;
+}
+
+.post_title {
+  font-size: 25px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  padding: 0;
+}
+
+.size15px {
+  font-size: 15.5px;
+  line-height: 25px;
+}
+
+.size25px {
+  font-size: 25px;
+  line-height: 22px;
+}
+
+.size35px {
+  font-size: 35px;
+  line-height: 30px;
+}
+
+.separator { 
+  display: block;
+  float: left;
+  background:url('separator.png') no-repeat; 
+  height:60px; 
+  width:1px;
+}
+
+.span12 {
+  width: 100%;
+  *width: 99.94680851063829%;
+}
+
+.span11 {
+  width: 91.48936170212765%;
+  *width: 91.43617021276594%;
+}
+
+.span10 {
+  width: 82.97872340425532%;
+  *width: 82.92553191489361%;
+}
+
+.span9 {
+  width: 74.46808510638297%;
+  *width: 74.41489361702126%;
+}
+
+.span8 {
+  width: 65.95744680851064%;
+  *width: 65.90425531914893%;
+}
+
+.span7 {
+  width: 57.44680851063829%;
+  *width: 57.39361702127659%;
+}
+
+.span6 {
+  width: 48.93617021276595%;
+  *width: 48.88297872340425%;
+}
+
+.span5 {
+  width: 40.42553191489362%;
+  *width: 40.37234042553192%;
+}
+
+.span4 {
+  width: 31.914893617021278%;
+  *width: 31.861702127659576%;
+}
+
+.span3 {
+  width: 23.404255319148934%;
+  *width: 23.351063829787233%;
+}
+
+.span2 {
+  width: 14.893617021276595%;
+  *width: 14.840425531914894%;
+}
+
+.span1 {
+  width: 6.382978723404255%;
+  *width: 6.329787234042553%;
+}
+
+.welcome {
+  width: 100%;
+  text-align:center;
+  position: fixed;
+  top: 50%;
+  font-family: bebas_neueregular;
+  font-size: 90px;
+  color: #000000;
+}
