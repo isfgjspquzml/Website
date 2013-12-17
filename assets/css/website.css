@@ -113,10 +113,6 @@ ul {
   margin-right:auto;
 }
 
-#disqus_thread {
-  margin-top:100px;
-}
-
 #information {
   text-align: center;
   position: relative;
@@ -276,6 +272,9 @@ ul {
 
 .blog_width {
   width: 670px;
+}
+
+.disqus_wrapper {
 }
 
 .drop45 {
