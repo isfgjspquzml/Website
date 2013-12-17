@@ -17,40 +17,45 @@ $(document).ready(function(){
 		console.log("hi");
 	}
 
-	// function loadDisqus(source, identifier, url) {
-	// 	// console.log("loadDisqus");
+	function loadDisqus(source, identifier, url) {
+		// console.log("loadDisqus");
 
-	// 	if (window.DISQUS) {
-	// 		jQuery('#disqus_thread').insertAfter(source); //append the HTML after the link
+		if (window.DISQUS) {
+			jQuery('#disqus_thread').insertAfter(source); //append the HTML after the link
 
-	// 	   //if Disqus exists, call it's reset method with new parameters
-	// 	   DISQUS.reset({
-	// 	   	reload: true,
-	// 	   	config: function () {
-	// 	   		this.page.identifier = identifier;
-	// 	   		this.page.url = url;
-	// 	   	}
-	// 	   });
+		   //if Disqus exists, call it's reset method with new parameters
+		   DISQUS.reset({
+		   	reload: true,
+		   	config: function () {
+		   		this.page.identifier = identifier;
+		   		this.page.url = url;
+		   	}
+		   });
 
-	// 	} else {
+		} else {
 
-	// 	   //insert a wrapper in HTML after the relevant "show comments" link
-	// 	   jQuery('<div id="disqus_thread"></div>').insertAfter(source);
-	// 	   disqus_identifier = identifier; //set the identifier argument
-	// 	   disqus_url = url; //set the permalink argument
+		   //insert a wrapper in HTML after the relevant "show comments" link
+		   jQuery('<div id="disqus_thread"></div>').insertAfter(source);
+		   disqus_identifier = identifier; //set the identifier argument
+		   disqus_url = url; //set the permalink argument
 
-	// 	   //append the Disqus embed script to HTML
-	// 	   var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-	// 	   dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-	// 	   jQuery('head').append(dsq);
+		   //append the Disqus embed script to HTML
+		   var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		   dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+		   jQuery('head').append(dsq);
 
-	// 	}
-	// }
+		}
+	}
 
 	window.onhashchange = function() {
 		page=window.location.hash.substring(1);
 		setPage(page);
 	}
+
+	$("#comments")
+	.click(function () {
+		console.log("hi");
+	})
 
 	$("#nav a")
 	.css({backgroundPosition: "0px 0px"})
@@ -67,14 +72,17 @@ $(document).ready(function(){
 	});
 
 	function loadContent(page) {
+		console.log("LoadContent (js)");
 		var href;
 		var blogPost;
 
 		if(page == "Home") {
+			console.log("Home");
 			$otherContent.fadeOut(200, function () {});
 			$blogSection.fadeOut(200, function () {});
 			$mainPic.delay(200).fadeIn(300, function () {})
 		} else if (page.substring(0, 4) == "Blog") {
+			console.log("Blog");
 			$otherContent.fadeOut(200, function () {});
 			$mainPic.fadeOut(300, function () {});
 			$blogSection.delay(200).fadeIn(200, function () {});
@@ -92,13 +100,14 @@ $(document).ready(function(){
 				$archiveSection.fadeOut(200, function () {});
 				$postSection.fadeOut(200, function() {
 					$postSection.hide().load(blogPost, function() {
-						$postSection.delay(200).fadeIn(200, function() {})
+						$postSection.delay(200).fadeIn(200, function() {
+							$.getScript('../assets/js/blog.js');
+						})
 					})
 				})
 			}
-			$.getScript("../assets/js/blog.js");
-
 		} else {
+			console.log("Other");
 			$mainPic.fadeOut(300, function () {});
 			$blogSection.fadeOut(200, function () {});
 

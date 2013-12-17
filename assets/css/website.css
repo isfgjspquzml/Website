@@ -113,6 +113,10 @@ ul {
   margin-right:auto;
 }
 
+#disqus_thread {
+  margin-top: 15px;
+}
+
 #information {
   text-align: center;
   position: relative;
@@ -211,6 +215,8 @@ ul {
     color: #000000;
 }
 
+#comments:hover,
+#comments:active,
 #blognav a:hover,
 #portfolionav a:hover,
 #blognav .active,
@@ -275,6 +281,7 @@ ul {
 }
 
 .disqus_wrapper {
+  padding-bottom: 100px;
 }
 
 .drop45 {
