@@ -8,8 +8,8 @@ var disqus_identifier; //made of post id and guid
 var disqus_url; //post permalink
 
 function loadDisqus(source, identifier, url) {
-	console.log(identifier);
-	console.log(url);
+	console.log("DISQUS identifier: " + identifier);
+	console.log("DISQUS url: " + url);
 
 	if (window.DISQUS) {
 		console.log("Reset DISQUS");
@@ -18,7 +18,7 @@ function loadDisqus(source, identifier, url) {
    DISQUS.reset({
    	reload: true,
    	config: function () {
-   		this.page.identifier = identifier + "1";
+   		this.page.identifier = identifier + "0";
    		this.page.url = url;
    	}
    });

@@ -1,7 +1,7 @@
 <div class="drop90" id="mainLoadSection">
 	{% for post in site.posts %}
 	<div class="post_title">
-		<a href="#Blog{{ post.url }}" identifier="{{ postData.title }}" datalink="{{ post.url }}">{{ post.title }}</a>
+		<a href="#!Blog{{ post.url }}" identifier="{{ postData.title }}" datalink="{{ post.url }}">{{ post.title }}</a>
 	</div>
 	<div class="post_info">
 		<div class="date">
@@ -10,7 +10,7 @@
 	</div>  
 	<div class="post_body">
 		<p>{{ post.excerpt }}</p>
-		<a href="#Blog{{ post.url }}" identifier="{{ postData.title }}" datalink="{{ post.url }}">Read more or comment &rarr;</a>
+		<a href="#!Blog{{ post.url }}" identifier="{{ postData.title }}" datalink="{{ post.url }}">Read more or comment &rarr;</a>
 	</div>
 	{% endfor %}
 </div>
