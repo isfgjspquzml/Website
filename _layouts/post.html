@@ -22,14 +22,36 @@ comments: true
 				</div>
 
 				{% if page.comments %}
-				<div class="disqus_wrapper">
+					<div id="disqus_thread"></div>
+					<script type="text/javascript">
+						identifier = $("#post_title").attr("identifier") + "plzwrk";
+						disqus_url = window.location.href;
 
- 					<a id="comments">
-						Show comments
-					</a>
-				</div>
+						if (window.DISQUS) {
+							console.log("Reset DISQUS");
+
+						   //if Disqus exists, call it's reset method with new parameters
+						   DISQUS.reset({
+						   	reload: true,
+						   	config: function () {
+						   		this.page.identifier = identifier;
+						   		this.page.url = disqus_url;
+						   	}});
+						} else {
+
+						   var disqus_shortname = 'tianyushi';
+						   var disqus_identifier = identifier;
+						   var disqus_url = disqus_url;
+
+						   //append the Disqus embed script to HTML
+						   var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+						   dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+						   $('head').append(dsq);
+						}
+					</script>
+				<!-- </div> -->
 				{% endif %}
 			</div>
 		</div>
-</div>
+	</div>
 </div>
