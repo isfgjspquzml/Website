@@ -111,4 +111,6 @@ $(document).ready(function(){
 
 		loadContent(page);
 	}
+
+	$("#loading_bar").css("display", "none");
 });

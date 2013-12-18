@@ -144,6 +144,17 @@ ul {
   padding: 0;
 }
 
+/*#loading_bar {
+  z-index: 1000;
+  position: fixed;
+  top: 0px;
+  text-align: center;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  height: 4px;
+}*/
+
 #main-blog {
   width: 100%;
 }
