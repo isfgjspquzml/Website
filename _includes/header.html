@@ -12,7 +12,7 @@
 </head>
 
 <body onload="window.onhashchange()">
-    <!-- <img style="display:block;" id="loading_bar" src="../assets/images/loading_bar.gif"/> -->
+    <img style="display:block;" id="loading_bar" src="../assets/images/loading_bar.gif"/>
 
     <!-- CLICK SOUND -->
     <audio id="click" class="sound_player">
@@ -49,12 +49,14 @@
         </ul>
     </div>
 
-    <div id="main-content">
+    <!-- Content section for About, Resume, Contact -->
+    <div style="display:none;" id="main-content">
         <div id="loadSection">
         </div>
     </div>
 
-    <div id="main-pic">
+    <!-- Content section for Tianyu Shi main page -->
+    <div style="display:none;" id="main-pic">
         <img style="opacity: 0.5;" src="assets/images/bg.jpg" width="100%" height="100%">
         <div class="welcome">Welcome to my website</div>
     </div>
