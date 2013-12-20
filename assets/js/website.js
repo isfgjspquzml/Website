@@ -13,16 +13,15 @@ $(document).ready(function(){
 
 	// Portfolio Sections
 	var $portfolioSection = $("#portfolioSection");
+	var $ploadSection = $("#ploadSection");
+	var prevSection;
+	var maxWidth = 65.9;
+	var maxHeight = 800;
 
 	window.onhashchange = function() {
 		page=window.location.hash.substring(1);
 		setPage(page);
 	}
-
-	$("#comments")
-	.click(function () {
-		console.log("hi");
-	})
 
 	$("#nav a")
 	.css({backgroundPosition: "0px 0px"})
@@ -42,16 +41,19 @@ $(document).ready(function(){
 		console.log("LoadContent (js)");
 		var href;
 		var blogPost;
-		var portSection;
 
 		if(page == "Home") {
 			console.log("Home");
+			$("#main-menu").slideDown(200, function() {});
+			$("footer").slideDown(200, function() {});
 			$otherContent.fadeOut(200, function () {});
 			$blogSection.fadeOut(200, function () {});
 			$portfolioSection.fadeOut(200, function () {});
 			$mainPic.delay(200).fadeIn(300, function () {})
 		} else if (page.substring(0, 4) == "Blog") {
 			console.log("Blog");
+			$("#main-menu").slideDown(200, function() {});
+			$("footer").slideDown(200, function() {});
 			$otherContent.fadeOut(200, function () {});
 			$mainPic.fadeOut(300, function () {});
 			$portfolioSection.fadeOut(200, function () {});
@@ -78,16 +80,64 @@ $(document).ready(function(){
 			$mainPic.fadeOut(300, function () {});
 			$blogSection.fadeOut(200, function () {});
 			$otherContent.fadeOut(200, function () {});
-			$portfolioSection.delay(200).fadeIn(200, function () {
-				portSection = page.substring(10);
-				console.log(portSection);
-				if(portSection == "") {
+			$portfolioSection.delay(400).fadeIn(200, function () {});
 
-				} else {
+			portSection = page.substring(10);
+
+			if(portSection == "") {
+				$("#main-menu").slideDown(200, function() {});
+				$("footer").slideDown(200, function() {});
+				portSection = "p_home";
+			} else {
+				portSection = portSection.split('/');
+				pic_to_load = portSection[1];
+
+				if(pic_to_load === undefined) {
+					if(portSection[0] == "Design") {
+						pic_to_load = "blazethestage";
+					} else if (portSection[0] == "Pics") {
+						pic_to_load = "driving";
+					} else if (portSection[0] == "Other") {
+						pic_to_load = "citysketch";
+					} else {
+						$("#main-menu").slideDown(200, function() {});
+						$("footer").slideDown(200, function() {});
+					}
 				}
-			});
+				portSection = portSection[0];
+				console.log(pic_to_load);
+			}
+
+			href = "../assets/pages/" + portSection.toLowerCase() + ".html" + " #ploadSection";
+			console.log("HREF: " + href);
+			console.log("SECTION: " + portSection);
+			console.log("PREV: " + prevSection);
+			console.log("src: " + src);
+
+			if(prevSection != portSection) {
+				$("#portfolionav").slideDown(200, function() {});
+				$portfolioSection.find("#ploadSection").fadeOut(200, function() {
+					$ploadSection.hide().load(href, function() {
+						if(portSection != "Projects" && portSection != "p_home") {
+							var src = "assets/images/images" + portSection + "/" + pic_to_load + ".jpg";
+							$("#gallery_pic").attr('src', src);
+								$.getScript('../assets/js/menu.js');
+						}
+						$ploadSection.delay(200).fadeIn(200, function() {})
+					});
+				});
+			} else {
+				$ploadSection.find("#gallery_pic").hide();
+				var src = "assets/images/images" + portSection + "/" + pic_to_load + ".jpg";
+				$("#gallery_pic").attr('src', src);
+				$ploadSection.find("#gallery_pic").fadeIn(200, function() {})
+			}
+
+			prevSection = portSection;
 		} else {
 			console.log("Other");
+			$("#main-menu").slideDown(200, function() {});
+			$("footer").slideDown(200, function() {});
 			$mainPic.fadeOut(300, function () {});
 			$blogSection.fadeOut(200, function () {});
 			$portfolioSection.fadeOut(200, function () {});
