@@ -87,6 +87,7 @@ $(document).ready(function(){
 			if(portSection == "") {
 				$("#main-menu").slideDown(200, function() {});
 				$("footer").slideDown(200, function() {});
+				$("#portfolionav").slideDown(200, function() {});
 				portSection = "p_home";
 			} else {
 				portSection = portSection.split('/');
@@ -102,6 +103,7 @@ $(document).ready(function(){
 					} else {
 						$("#main-menu").slideDown(200, function() {});
 						$("footer").slideDown(200, function() {});
+						$("#portfolionav").slideDown(200, function() {});
 					}
 				}
 				portSection = portSection[0];
@@ -112,10 +114,8 @@ $(document).ready(function(){
 			console.log("HREF: " + href);
 			console.log("SECTION: " + portSection);
 			console.log("PREV: " + prevSection);
-			console.log("src: " + src);
 
 			if(prevSection != portSection) {
-				$("#portfolionav").slideDown(200, function() {});
 				$portfolioSection.find("#ploadSection").fadeOut(200, function() {
 					$ploadSection.hide().load(href, function() {
 						if(portSection != "Projects" && portSection != "p_home") {
@@ -123,6 +123,7 @@ $(document).ready(function(){
 							$("#gallery_pic").attr('src', src);
 								$.getScript('../assets/js/menu.js');
 						}
+
 						$ploadSection.delay(200).fadeIn(200, function() {})
 					});
 				});
