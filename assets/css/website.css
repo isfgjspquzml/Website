@@ -81,6 +81,7 @@ footer {
   color: #ffffff;
   text-decoration: none;  
   opacity: 0.85;
+  z-index: 10;
 }
 
 footer a,
@@ -118,6 +119,11 @@ ul {
   margin-top: 15px;
 }
 
+#fullscreen {
+  position: relative;
+  z-index: 5;
+}
+
 #information {
   text-align: center;
   position: relative;
@@ -125,6 +131,10 @@ ul {
   font-family: Avenir Next Condensed;
   text-transform: uppercase;
   top: 30px;
+}
+
+#icon-menu {
+  margin-top: 30px;
 }
 
 #left {
@@ -158,6 +168,11 @@ ul {
 
 #main-blog {
   width: 100%;
+}
+
+#main-pic {
+  height: 100%;
+  background: url('assets/images/bg.jpg')
 }
 
 #otherContent {
@@ -271,11 +286,14 @@ ul {
 #gallery_pic {
   border: 0;
   padding-bottom:60px;
+  z-index: 0;
 }
 
 #thumbs {
   position: relative;
   padding-bottom: 40px;
+  z-index: 5;
+  background: #ffffff;
 }
 
 #thumbs ul {
@@ -348,6 +366,11 @@ ul {
 
 .blog_width {
   width: 670px;
+}
+
+.border {
+  padding: 2px;
+  border: 1px solid #000000;
 }
 
 #loadSection,
@@ -530,10 +553,12 @@ ul {
 
 .welcome {
   width: 100%;
+  height: 100%;
   text-align:center;
   position: fixed;
-  top: 50%;
+  top:45%;
   font-family: bebas_neueregular;
   font-size: 90px;
+  line-height: 90px;
   color: #000000;
 }

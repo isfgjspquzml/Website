@@ -1,5 +1,4 @@
 console.log("loaded menu.js");
-var goUp = true;
 
 $("#fullscreen img")
 .mouseover(function(){
@@ -19,11 +18,11 @@ $("#fullscreen img")
 	$("footer").slideToggle(200);
 	$("#portfolionav").slideToggle(100);
 
-	if(goUp) {
+	if(window.hideMenu) {
 		$("#gallery").animate({top: "20px"}, 200);
-		goUp = false;
+		window.hideMenu = false;
 	} else {
 		$("#gallery").animate({top: "70px"}, 200);
-		goUp = true;
+		window.hideMenu = true;
 	}
 })

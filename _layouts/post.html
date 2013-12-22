@@ -5,7 +5,6 @@ comments: true
 
 <div class="post">
 	{% assign postData = page %}
-	{% assign postContent = content %}
 
 	<div id="postLoadSection">
 		<div class="drop90 post">
@@ -17,7 +16,7 @@ comments: true
 					{{ postData.date | date: "%A %B %d, %Y" }}
 				</div>
 				<div class="post_body">
-					{{ postContent }}
+					{{ content }}
 					<br/>
 				</div>
 

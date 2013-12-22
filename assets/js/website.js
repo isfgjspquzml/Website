@@ -17,6 +17,7 @@ $(document).ready(function(){
 	var prevSection;
 	var maxWidth = 65.9;
 	var maxHeight = 800;
+	window.hideMenu = true;
 
 	window.onhashchange = function() {
 		page=window.location.hash.substring(1);
@@ -122,6 +123,9 @@ $(document).ready(function(){
 							var src = "assets/images/images" + portSection + "/" + pic_to_load + ".jpg";
 							$("#gallery_pic").attr('src', src);
 								$.getScript('../assets/js/menu.js');
+								if(!window.hideMenu) {
+									$("#gallery").animate({top: "20px"}, 200);
+								}
 						}
 
 						$ploadSection.delay(200).fadeIn(200, function() {})
