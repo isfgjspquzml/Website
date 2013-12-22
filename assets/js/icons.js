@@ -11,7 +11,7 @@ $("#icon-menu img")
 	if ($(this).attr("id") == "mail_icon") {
 		hovertext = "tianyushi1992@gmail.com";
 	} else if ($(this).attr("id") == "phone_icon") {
-		hovertext = "(267) 421-2577";
+		hovertext = "267.421.2577";
 	} else if ($(this).attr("id") == "linkedin_icon") {
 		hovertext = "www.linkedin.com";
 	} else if ($(this).attr("id") == "facebook_icon") {

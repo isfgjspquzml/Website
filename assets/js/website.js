@@ -1,5 +1,8 @@
+// THE JAVASCRIPT IS EXTREMELY MESSY
+// Haha, it's a work in progress and I just wanted to publish something that was working
+// Anyways, I'll need to refactor this in the future as well as get rid of other bugs
+
 $(document).ready(function(){
-	var click = $("#click")[0];
 	var activePage;
 
 	var $otherContent = $("#main-content");
@@ -27,7 +30,6 @@ $(document).ready(function(){
 	$("#nav a")
 	.css({backgroundPosition: "0px 0px"})
 	.mouseover(function(){
-		click.play();
 		$("#main-menu").css("opacity", "1");
 		$(this).stop().animate({backgroundPosition:"(0px -60px)"}, {duration:100})
 	})
