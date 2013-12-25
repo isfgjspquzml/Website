@@ -1,3 +1,6 @@
+/*jslint white: true, browser: true, devel: true, windows: true, forin: true, vars: true, nomen: true, plusplus: true, bitwise: true, regexp: true, sloppy: true, indent: 4, maxerr: 50 */
+/*global $:false */
+
 var $information = $("#information");
 $information.hide();
 
@@ -18,7 +21,7 @@ $("#icon-menu img")
 		hovertext = "www.facebook.com/tianyus";
 	} else if ($(this).attr("id") == "github_icon") {
 		hovertext = "www.github.com/isfgspquzml";
-	} 
+	}
 
 	$information.html(hovertext);
 	$information.fadeIn(200, function () {});

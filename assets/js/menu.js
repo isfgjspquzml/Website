@@ -1,4 +1,5 @@
-console.log("loaded menu.js");
+/*jslint white: true, browser: true, devel: true, windows: true, forin: true, vars: true, nomen: true, plusplus: true, bitwise: true, regexp: true, sloppy: true, indent: 4, maxerr: 50 */
+/*global $:false */
 
 $("#fullscreen img")
 .mouseover(function(){
@@ -25,4 +26,4 @@ $("#fullscreen img")
 		$("#gallery").animate({top: "70px"}, 200);
 		window.hideMenu = true;
 	}
-})
+});
