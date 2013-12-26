@@ -1,14 +1,16 @@
-/*jslint white: true, browser: true, devel: true, windows: true, forin: true, vars: true, nomen: true, plusplus: true, bitwise: true, regexp: true, sloppy: true, indent: 4, maxerr: 50 */
+/*jshint undef:true, devel:true */
 /*global $:false */
+"use strict";
 
-var $information = $("#information");
+var $information = $("#information"); // Information displayed based on hover item
+
 $information.hide();
 
 $("#icon-menu img")
-.mouseover(function(){
+.mouseover(function() {
 	var hovertext;
-
 	var src = $(this).attr("src").match(/[^\.]+/) + "_reverse.png";
+
 	$(this).attr("src", src);
 
 	if ($(this).attr("id") == "mail_icon") {
@@ -26,7 +28,7 @@ $("#icon-menu img")
 	$information.html(hovertext);
 	$information.fadeIn(200, function () {});
 })
-.mouseout(function(){
+.mouseout(function() {
 	var src = $(this).attr("src").replace("_reverse.png", ".png");
 	$(this).attr("src", src);
 	$information.hide();
