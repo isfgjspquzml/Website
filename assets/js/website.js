@@ -5,9 +5,9 @@ $(document).ready(function() {
 	"use strict";
 
 	// Globals
-	var activePage; // Section currently being viewed (e.g. Blog, About)
-	var prevSection; // Previous section viewed, used for portfolio transition
-	window.hideMenu = true; // Is the main nav menu and footer hidden?
+	var active_page; // Section currently being viewed (e.g. Blog, About)
+	var prev_section; // Previous section viewed, used for portfolio transition
+	window.menu_visible = true; // Is the main nav menu and footer hidden?
 
 	// Main menu hover animation
 	$("#nav a")
@@ -48,14 +48,21 @@ $(document).ready(function() {
 
 		document.title = "Tianyu Shi \u2022 " + page;
 
-		if (activePage !== null) {
-			$(activePage).removeClass("active");
+		if (active_page !== null) {
+			$(active_page).removeClass("active");
 		}
 
-		pageSplit = page.split("/")[0];
-		activePage = document.getElementById(pageSplit);
+		// Enable menu should user navigate avay from the gallery
+		if (page.split("/")[1] !== "Design" &&
+			page.split("/")[1] !== "Pics" &&
+			page.split("/")[1] !== "Other") {
+			console.log("set true");
+			window.menu_visible = true;
+		}
 
-		$(activePage).addClass("active");
+		active_page = document.getElementById(pageSplit);
+
+		$(active_page).addClass("active");
 		console.log("Loading " + page);
 
 		loadContent(page);
@@ -152,14 +159,14 @@ $(document).ready(function() {
 
 			href = "../assets/pages/" + portSection.toLowerCase() + ".html" + " #ploadSection";
 
-			if (prevSection != portSection) {
+			if (prev_section != portSection) {
 				$portfolioSection.find("#ploadSection").fadeOut(200, function() {
 					$ploadSection.hide().load(href, function() {
 						if(portSection != "Projects" && portSection != "p_home") {
 							var src = "assets/images/images" + portSection + "/" + pic_to_load + ".jpg";
 							$("#gallery_pic").attr("src", src);
 							$.getScript("../assets/js/menu.js");
-							if(!window.hideMenu) {
+							if(!window.menu_visible) {
 								$("#gallery").animate({top: "20px"}, 200);
 							}
 						}
@@ -174,7 +181,7 @@ $(document).ready(function() {
 				$ploadSection.find("#gallery_pic").fadeIn(200, function() {});
 			}
 
-			prevSection = portSection;
+			prev_section = portSection;
 		} else {
 			console.log("Other");
 			$("#main-menu").slideDown(200, function() {});

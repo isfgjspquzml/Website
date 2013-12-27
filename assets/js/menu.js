@@ -19,11 +19,11 @@ $("#fullscreen img")
 	$("footer").slideToggle(200);
 	$("#portfolionav").slideToggle(100);
 
-	if (window.hideMenu) {
+	if (window.menu_visible) {
 		$("#gallery").animate({top: "20px"}, 200);
-		window.hideMenu = false;
+		window.menu_visible = false;
 	} else {
 		$("#gallery").animate({top: "70px"}, 200);
-		window.hideMenu = true;
+		window.menu_visible = true;
 	}
 });
