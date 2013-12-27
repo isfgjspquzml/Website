@@ -5,9 +5,9 @@ $(document).ready(function() {
 	"use strict";
 
 	// Globals
-	var active_page; // Section currently being viewed (e.g. Blog, About)
-	var prev_section; // Previous section viewed, used for portfolio transition
-	window.menu_visible = true; // Is the main nav menu and footer hidden?
+	var ACTIVE_PAGE; // Section currently being viewed (e.g. Blog, About)
+	var PREV_SECTION; // Previous section viewed, used for portfolio transition
+	window.MENU_VISIBLE = true; // Is the main nav menu and footer hidden?
 
 	// Main menu hover animation
 	$("#nav a")
@@ -23,20 +23,17 @@ $(document).ready(function() {
 		}});
 	});
 
-	// On hash change, load content
+	/**
+	* Get URL hashchange and feed loadContent function the string page to load
+	*/
 	window.onhashchange = function() {
 		var page; // page hash
+		var pageSplit; // page hash split before "/", "Pics/image" -> "Pics"
+
 		page=window.location.hash.substring(1);
 
 		// Show loading bar while loading
 		$("#loading_bar").show();
-
-		setPage(page);
-	};
-
-	// After a page changes, make the necessary adjustments
-	function setPage(page) {
-		var pageSplit; // page hash split before "/", "Pics/image" -> "Pics"
 
 		if (page.substring(0, 1) == "!") {
 			page = page.substring(1);
@@ -48,27 +45,31 @@ $(document).ready(function() {
 
 		document.title = "Tianyu Shi \u2022 " + page;
 
-		if (active_page !== null) {
-			$(active_page).removeClass("active");
+		if (ACTIVE_PAGE !== null) {
+			$(ACTIVE_PAGE).removeClass("active");
 		}
 
-		// Enable menu should user navigate avay from the gallery
+		// Enable menu should user navigate avay from the gallery.
 		if (page.split("/")[1] !== "Design" &&
 			page.split("/")[1] !== "Pics" &&
 			page.split("/")[1] !== "Other") {
 			console.log("set true");
-			window.menu_visible = true;
+			window.MENU_VISIBLE = true;
 		}
 
-		active_page = document.getElementById(pageSplit);
+		ACTIVE_PAGE = document.getElementById(pageSplit);
 
-		$(active_page).addClass("active");
+		$(ACTIVE_PAGE).addClass("active");
 		console.log("Loading " + page);
 
 		loadContent(page);
 	}
 
-	// Load a page according to a particular page hash
+	/**
+	* Load the content of the page depending on the URL hash passed in.
+	* 
+	* @param {String} page Particular page to load the content of
+	*/
 	function loadContent(page) {
 		var href; // Reference for loading content
 		var blogPost; // Blog post title
@@ -159,14 +160,14 @@ $(document).ready(function() {
 
 			href = "../assets/pages/" + portSection.toLowerCase() + ".html" + " #ploadSection";
 
-			if (prev_section != portSection) {
+			if (PREV_SECTION != portSection) {
 				$portfolioSection.find("#ploadSection").fadeOut(200, function() {
 					$ploadSection.hide().load(href, function() {
 						if(portSection != "Projects" && portSection != "p_home") {
 							var src = "assets/images/images" + portSection + "/" + pic_to_load + ".jpg";
 							$("#gallery_pic").attr("src", src);
 							$.getScript("../assets/js/menu.js");
-							if(!window.menu_visible) {
+							if(!window.MENU_VISIBLE) {
 								$("#gallery").animate({top: "20px"}, 200);
 							}
 						}
@@ -181,7 +182,7 @@ $(document).ready(function() {
 				$ploadSection.find("#gallery_pic").fadeIn(200, function() {});
 			}
 
-			prev_section = portSection;
+			PREV_SECTION = portSection;
 		} else {
 			console.log("Other");
 			$("#main-menu").slideDown(200, function() {});

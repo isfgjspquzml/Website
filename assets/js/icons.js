@@ -3,9 +3,9 @@
 "use strict";
 
 var $information = $("#information"); // Information displayed based on hover item
+$information.hide(); // Invisible by default
 
-$information.hide();
-
+// On hover over an icon, replace it with another
 $("#icon-menu img")
 .mouseover(function() {
 	var hovertext;

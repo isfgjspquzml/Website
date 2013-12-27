@@ -3,6 +3,7 @@
 
 "use strict";
 
+// On hover over the fullscreen icon, replace it with another
 $("#fullscreen img")
 .mouseover(function() {
 	var src = "assets/images/fullscreen_reverse.png";
@@ -13,17 +14,18 @@ $("#fullscreen img")
 	$(this).attr("src", src);
 });
 
+// Toggle the nav visibility on click
 $("#fullscreen img")
 .click(function() {
 	$("#main-menu").slideToggle(200);
 	$("footer").slideToggle(200);
 	$("#portfolionav").slideToggle(100);
 
-	if (window.menu_visible) {
+	if (window.MENU_VISIBLE) {
 		$("#gallery").animate({top: "20px"}, 200);
-		window.menu_visible = false;
+		window.MENU_VISIBLE = false;
 	} else {
 		$("#gallery").animate({top: "70px"}, 200);
-		window.menu_visible = true;
+		window.MENU_VISIBLE = true;
 	}
 });
