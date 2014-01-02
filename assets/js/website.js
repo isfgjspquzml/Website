@@ -7,21 +7,31 @@ $(document).ready(function() {
 	// Globals
 	var ACTIVE_PAGE; // Section currently being viewed (e.g. Blog, About)
 	var PREV_SECTION; // Previous section viewed, used for portfolio transition
-	window.MENU_VISIBLE = true; // Is the main nav menu and footer hidden?
+	//var GALLERY_MAX_HEIGHT;
+	//var GALLERY_MAX_WIDTH;
 
-	// Main menu hover animation
-	$("#nav a")
-	.css({backgroundPosition: "0px 0px"})
-	.mouseover(function() {
-		$("#main-menu").css("opacity", "1");
-		$(this).stop().animate({backgroundPosition: "(0px -60px)"}, {duration:100});
-	})
-	.mouseout(function() {
-		$("#main-menu").css("opacity", "0.8");
-		$(this).stop().animate({backgroundPosition: "(0px 0px)"}, {duration:100, complete:function() {
-			$(this).css({backgroundPosition: "0px 0px"});
-		}});
-	});
+	// DOM References
+	var $mainNav = $("#main-menu");
+	var $loadingBar = $("#loading_bar");
+	var $footer = $("footer");
+
+	// Home Section
+	var $mainPic = $("#main-pic"); // Welcome picture
+
+	// Blog Sections
+	var $blogSection = $("#main-blog");
+	var $mainLoadSection = $("#mainLoadSection"); // Default Section for Blog
+	var $archiveSection = $("#archiveLoadSection"); // Archive Section for Blog
+	var $postSection = $("#postLoadSection"); // Post Section for Blog
+
+	// Portfolio Sections
+	var $portfolioSection = $("#portfolioSection");
+	var $ploadSection = $("#ploadSection"); // Portfolio Section to load
+
+	// Other Sections
+	var $otherContent = $("#main-content"); // Content sections Contacts, About, etc.
+
+	window.MENU_VISIBLE = true;
 
 	/**
 	* Get URL hashchange and feed loadContent function the string page to load
@@ -33,7 +43,7 @@ $(document).ready(function() {
 		page=window.location.hash.substring(1);
 
 		// Show loading bar while loading
-		$("#loading_bar").show();
+		$loadingBar.show();
 
 		if (page.substring(0, 1) == "!") {
 			page = page.substring(1);
@@ -63,7 +73,7 @@ $(document).ready(function() {
 		console.log("Loading " + page);
 
 		loadContent(page);
-	}
+	};
 
 	/**
 	* Load the content of the page depending on the URL hash passed in.
@@ -74,35 +84,19 @@ $(document).ready(function() {
 		var href; // Reference for loading content
 		var blogPost; // Blog post title
 		var pageSplit; // page hash split before "/", "Pics/image" -> "Pics"
-
-		// Home Section
-		var $mainPic = $("#main-pic"); // Welcome picture
-
-		// Blog Sections
-		var $blogSection = $("#main-blog");
-		var $mainLoadSection = $("#mainLoadSection"); // Default Section for Blog
-		var $archiveSection = $("#archiveLoadSection"); // Archive Section for Blog
-		var $postSection = $("#postLoadSection"); // Post Section for Blog
-
-		// Portfolio Sections
-		var $portfolioSection = $("#portfolioSection");
-		var $ploadSection = $("#ploadSection"); // Portfolio Section to load
 		var pic_to_load; // If in gallery, the picture to load
 		var portSection; // Current section in portfolio being viewed
 
-		// Other Sections
-		var $otherContent = $("#main-content"); // Content sections Contacts, About, etc.
-
 		if (page == "Home") {
-			$("#main-menu").slideDown(200, function() {});
-			$("footer").slideDown(200, function() {});
+			$mainNav.slideDown(200, function() {});
+			$footer.slideDown(200, function() {});
 			$otherContent.fadeOut(200, function() {});
 			$blogSection.fadeOut(200, function() {});
 			$portfolioSection.fadeOut(200, function() {});
 			$mainPic.delay(200).fadeIn(300, function() {});
 		} else if (page.substring(0, 4) == "Blog") {
-			$("#main-menu").slideDown(200, function() {});
-			$("footer").slideDown(200, function() {});
+			$mainNav.slideDown(200, function() {});
+			$footer.slideDown(200, function() {});
 			$otherContent.fadeOut(200, function() {});
 			$mainPic.fadeOut(300, function() {});
 			$portfolioSection.fadeOut(200, function() {});
@@ -134,8 +128,8 @@ $(document).ready(function() {
 			portSection = page.substring(10);
 
 			if (portSection === "") {
-				$("#main-menu").slideDown(200, function() {});
-				$("footer").slideDown(200, function() {});
+				$mainNav.slideDown(200, function() {});
+				$footer.slideDown(200, function() {});
 				$("#portfolionav").slideDown(200, function() {});
 				portSection = "p_home";
 			} else {
@@ -150,8 +144,8 @@ $(document).ready(function() {
 					} else if (portSection[0] == "Other") {
 						pic_to_load = "citysketch";
 					} else {
-						$("#main-menu").slideDown(200, function() {});
-						$("footer").slideDown(200, function() {});
+						$mainNav.slideDown(200, function() {});
+						$footer.slideDown(200, function() {});
 						$("#portfolionav").slideDown(200, function() {});
 					}
 				}
@@ -185,8 +179,8 @@ $(document).ready(function() {
 			PREV_SECTION = portSection;
 		} else {
 			console.log("Other");
-			$("#main-menu").slideDown(200, function() {});
-			$("footer").slideDown(200, function() {});
+			$mainNav.slideDown(200, function() {});
+			$footer.slideDown(200, function() {});
 			$mainPic.fadeOut(300, function() {});
 			$blogSection.fadeOut(200, function() {});
 			$portfolioSection.fadeOut(200, function() {});
@@ -206,6 +200,20 @@ $(document).ready(function() {
 		}
 
 		// Hide the loading bar after loading
-		$("#loading_bar").hide();
+		$loadingBar.hide();
 	}
+
+	// Main menu hover animation
+	$("#nav a")
+	.css({backgroundPosition: "0px 0px"})
+	.mouseover(function() {
+		$mainNav.css("opacity", "1");
+		$(this).stop().animate({backgroundPosition: "(0px -60px)"}, {duration:100});
+	})
+	.mouseout(function() {
+		$mainNav.css("opacity", "0.8");
+		$(this).stop().animate({backgroundPosition: "(0px 0px)"}, {duration:100, complete:function() {
+			$(this).css({backgroundPosition: "0px 0px"});
+		}});
+	});
 });
