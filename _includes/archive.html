@@ -1,22 +1,22 @@
-<div class="archive" id="archiveLoadSection">
-	<div id="archiveContainer">
-		<div id="left" class="span6">
-			<ul id="date_list">
-				{% for post in site.posts %}
-				<li>
-					<span class="post_date">{{ post.date | date: "%B %d, %Y" }} &#9830; </span>
-				</li>
-				{% endfor %}
-			</ul>
-		</div>
-		<div id="right" class="span6">
-			<ul id="post_list">
-				{% for post in site.posts %}
-				<li>
-					<a href="#!Blog{{ post.url }}" datalink="{{ post.url }}">{{ post.title }}</a>
-				</li>
-				{% endfor %}
-			</ul>
+	<div class="archive" id="archiveLoadSection">
+		<div id="archiveContainer">
+			<div id="left" class="span6">
+				<ul id="date_list">
+					{% for post in site.posts %}
+					<li>
+						<span class="post_date">{{ post.date | date: "%B %d, %Y" }} &#9830; </span>
+					</li>
+					{% endfor %}
+				</ul>
+			</div>
+			<div id="right" class="span6">
+				<ul id="post_list">
+					{% for post in site.posts %}
+					<li>
+						<a href="#!Blog{{ post.url }}" datalink="{{ post.url }}">{{ post.title }}</a>
+					</li>
+					{% endfor %}
+				</ul>
+			</div>
 		</div>
 	</div>
-</div>

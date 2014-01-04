@@ -11,6 +11,7 @@ $(document).ready(function() {
 	//var GALLERY_MAX_WIDTH;
 
 	// DOM References
+	var $body = $("body");
 	var $mainNav = $("#main-menu");
 	var $loadingBar = $("#loading_bar");
 	var $footer = $("footer");
@@ -87,16 +88,17 @@ $(document).ready(function() {
 		var pic_to_load; // If in gallery, the picture to load
 		var portSection; // Current section in portfolio being viewed
 
-		if (page == "Home") {
+		if(page.substring(0,9) != "Portfolio") {
 			$mainNav.slideDown(200, function() {});
 			$footer.slideDown(200, function() {});
+		}
+
+		if (page == "Home") {
 			$otherContent.fadeOut(200, function() {});
 			$blogSection.fadeOut(200, function() {});
 			$portfolioSection.fadeOut(200, function() {});
 			$mainPic.delay(200).fadeIn(300, function() {});
 		} else if (page.substring(0, 4) == "Blog") {
-			$mainNav.slideDown(200, function() {});
-			$footer.slideDown(200, function() {});
 			$otherContent.fadeOut(200, function() {});
 			$mainPic.fadeOut(300, function() {});
 			$portfolioSection.fadeOut(200, function() {});
@@ -178,9 +180,6 @@ $(document).ready(function() {
 
 			PREV_SECTION = portSection;
 		} else {
-			console.log("Other");
-			$mainNav.slideDown(200, function() {});
-			$footer.slideDown(200, function() {});
 			$mainPic.fadeOut(300, function() {});
 			$blogSection.fadeOut(200, function() {});
 			$portfolioSection.fadeOut(200, function() {});
